@@ -1,4 +1,5 @@
 from typing import Union
+from typing import List
 
 
 class Matrix:
@@ -15,9 +16,9 @@ class Matrix:
      [0  2  5]
      [4  2  0]'
     """
-    matrix: list[list[Union[int, float]]]
+    matrix: List[List[Union[int, float]]]
 
-    def __init__(self, matrix: list[list[Union[int, float]]]) -> None:
+    def __init__(self, matrix: List[List[Union[int, float]]]) -> None:
         """Initialize a new matrix with len(<matrix>) rows and len(<matrix>[0])
         columns
 
@@ -25,8 +26,7 @@ class Matrix:
         >>> M.matrix
         [[1  2  3], [4  5  6], [7  8  9]]
         """
-        # TODO: Write implementation
-        pass
+        self.matrix = matrix
 
     def __str__(self) -> str:
         """Prints out a string representation of the matrix
@@ -36,8 +36,7 @@ class Matrix:
         '[1  2  3]
          [4  5  6]'
         """
-        # TODO: Write implementation
-        pass
+        return str(self.matrix)
 
     def __eq__(self, other) -> bool:
         """Returns if the matrix <self> is equal in value to the matrix <other>
@@ -47,5 +46,5 @@ class Matrix:
         >>> A == B
         True
         """
-        # TODO: Write implementation
-        pass
+        return self.matrix == other.matrix
+
