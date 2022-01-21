@@ -1,4 +1,4 @@
-from typing import Union
+from typing import Union, List
 
 
 class Matrix:
@@ -44,9 +44,9 @@ class CoefficientMatrix(Matrix):
     === Attributes ===
     coefficients: the list of lists of coefficients that make up the matrix
     """
-    coefficients: list[list[Union[int, float]]]
+    coefficients: List[List[Union[int, float]]]
 
-    def __init__(self, coefficients: list[list[Union[int, float]]]) -> None:
+    def __init__(self, coefficients: List[List[Union[int, float]]]) -> None:
         """Initialize a new matrix with len(<matrix>) rows and len(<matrix>[0])
         columns
         """
@@ -96,10 +96,10 @@ class AugmentedMatrix(CoefficientMatrix):
     - len(coefficients) == len(constants)
     """
     coefficients: CoefficientMatrix
-    constants: list[Union[int, float]]
+    constants: List[Union[int, float]]
 
     def __init__(self, coefficients: CoefficientMatrix,
-                 constants: list[Union[int, float]]) -> None:
+                 constants: List[Union[int, float]]) -> None:
         CoefficientMatrix.__init__(self, coefficients)
         self.constants = constants
 
