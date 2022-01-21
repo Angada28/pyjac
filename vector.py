@@ -1,4 +1,4 @@
-from typing import Union
+from typing import Union, List
 
 
 class Vector:
@@ -15,7 +15,7 @@ class Vector:
      [1]
      [2]'
     """
-    vector: list[Union[int, float]]
+    vector: List[Union[int, float]]
 
     def __init__(self, vector: list[Union[int, float]]) -> None:
         """Initialize a new vector with len(<vector>) rows and 1 column

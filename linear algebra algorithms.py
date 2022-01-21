@@ -3,6 +3,7 @@ import copy
 
 from matrix import Matrix
 from fractions import *
+from vector import Vector
 
 
 def determinant(mat: Matrix):
@@ -77,3 +78,27 @@ def swap(new_m: Matrix, col, end_row):
                 col]
             return 1
     return 0
+
+
+def cross_product(first: Vector, second: Vector) -> Vector:
+    """
+    pre: first and second are valid vectors in r3 with real components
+    post: returns a new vector that is perpendicular to both first and second
+    """
+    new_vector = [
+        first.vector[1] * second.vector[2] - first.vector[2] * second.vector[1],
+        first.vector[2] * second.vector[0] - first.vector[0] * second.vector[2],
+        first.vector[0] * second[1] - first.vector[1] * second.vector[0]]
+    v = Vector(new_vector)
+    return v
+
+
+def dot_product(first: Vector, second: Vector):
+    """
+    pre: first and second are valid vectors of the same size
+    post: returns the dot product of first and second
+    """
+    total = 0
+    for i in range(len(first.vector)):
+        total += first.vector[i] * second.vector[i]
+    return total
