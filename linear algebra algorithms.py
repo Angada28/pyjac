@@ -158,10 +158,7 @@ def get_inverse(mat: CoefficientMatrix) -> Union[None, CoefficientMatrix]:
                 mat_a.swap_rows(i + 1, new_row + 1)
                 mat_b.swap_rows(i + 1, new_row + 1)
             else:
-                if identity_mat == mat_a:
-                    return mat_b
-                print("Matrix is not invertible.")
-                return None
+                break
 
         # Dividing row by leading number to get a leading one
         col = 0

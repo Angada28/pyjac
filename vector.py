@@ -61,3 +61,25 @@ class Vector:
         False
         """
         return self.vector != other.vector
+
+    def cross_product(self, other: 'Vector') -> 'Vector':
+        """
+        pre: first and second are valid vectors in r3 with real components
+        post: returns a new vector that is perpendicular to both first and second
+        """
+        new_vector = [
+            self.vector[1] * other.vector[2] - self.vector[2] * other.vector[1],
+            self.vector[2] * other.vector[0] - self.vector[0] * other.vector[2],
+            self.vector[0] * other.vector[1] - self.vector[1] * other.vector[0]]
+        v = Vector(new_vector)
+        return v
+
+    def dot_product(self, other: 'Vector'):
+        """
+        pre: first and second are valid vectors of the same size
+        post: returns the dot product of first and second
+        """
+        total = 0
+        for i in range(len(self.vector)):
+            total += self.vector[i] * other.vector[i]
+        return total
