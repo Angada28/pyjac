@@ -1,4 +1,5 @@
 from typing import Union, List
+from fractions import Fraction
 
 
 class Matrix:
@@ -44,9 +45,11 @@ class CoefficientMatrix(Matrix):
     === Attributes ===
     coefficients: the list of lists of coefficients that make up the matrix
     """
-    coefficients: List[List[Union[int, float]]]
+    coefficients: List[List[Union[int, Union[Fraction, float]]]]
 
-    def __init__(self, coefficients: List[List[Union[int, float]]]) -> None:
+    def __init__(self,
+                 coefficients:
+                 List[List[Union[int, Union[Fraction, float]]]]) -> None:
         """Initialize a new matrix with len(<matrix>) rows and len(<matrix>[0])
         columns
         """
@@ -57,7 +60,10 @@ class CoefficientMatrix(Matrix):
         """
         s = ''
         for i in range(len(self.coefficients)):
-            s = s + str(self.coefficients[i]) + '\n'
+            _print = ''
+            for j in range(len(self.coefficients[i])):
+                _print += str(self.coefficients[i][j]) + ', '
+            s = s + '[' + str(_print[:-2]) + ']' + '\n'
         return s.rstrip()
 
     def __eq__(self, other) -> bool:
@@ -96,17 +102,20 @@ class AugmentedMatrix(CoefficientMatrix):
     - len(coefficients) == len(constants)
     """
     coefficients: CoefficientMatrix
-    constants: List[Union[int, float]]
+    constants: List[Union[int, Union[Fraction, float]]]
 
     def __init__(self, coefficients: CoefficientMatrix,
-                 constants: List[Union[int, float]]) -> None:
+                 constants: List[Union[int, Union[Fraction, float]]]) -> None:
         CoefficientMatrix.__init__(self, coefficients)
         self.constants = constants
 
     def __str__(self) -> str:
         s = ''
         for i in range(len(self.constants)):
-            s = s + str(self.coefficients.coefficients[i]) + '[' + \
+            _print = ''
+            for j in range(len(self.coefficients.coefficients[i])):
+                _print += str(self.coefficients.coefficients[i][j]) + ', '
+            s = s + '[' + str(_print[:-2]) + ']' + '[' + \
                 str(self.constants[i]) + ']\n'
         return s.rstrip()
 

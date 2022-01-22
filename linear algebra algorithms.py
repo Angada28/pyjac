@@ -321,7 +321,7 @@ def gaussian(mat: AugmentedMatrix) -> str:
     # Separate the coefficients and the constants in two different lists
     _coefficients = mat_a.coefficients.coefficients
     _constants = mat_a.constants
-    print(_constants)
+
     # Get the number of rows and columns of the coefficient Matrix
     m = len(_coefficients)
     n = 0
@@ -404,4 +404,3 @@ def gaussian(mat: AugmentedMatrix) -> str:
     if leading_str + free_str == "":
         return "No solutions."
     return leading_str + free_str
-
