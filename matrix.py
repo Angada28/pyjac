@@ -92,7 +92,9 @@ class CoefficientMatrix(Matrix):
 
     def determinant(self):
         """
-        computes the determinant of an n x n matrix
+        computes the determinant of an n x n matrix with real number entries
+        pre: must be an n x n matrix
+        post: the determinant of an n x n matrix
         """
         # Create a copy of the input
         m = CoefficientMatrix(copy.deepcopy(self.coefficients))
