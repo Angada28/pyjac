@@ -9,7 +9,7 @@ from typing import List, Union
 
 def determinant(mat: Matrix):
     """
-    computes the determinant of an n x n matrix
+    computes the determinant of an n x n matrix with real number entries
     """
     # Create a copy of the input
     m = Matrix(copy.deepcopy(mat.matrix))
