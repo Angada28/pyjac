@@ -2,6 +2,26 @@ from matrix import *
 from complex_number import *
 from vector import *
 
+""" 
+=== Program Description ===
+This program will give the user the ability to use various algorithms used in
+linear algebra that have been implemented in this program. This program supports
+the following actions:
+- Finding the determinant of a matrix
+- Gaussian elimination
+- Finding the inverse of a matrix
+- Calculating the dot-product of two vectors
+- Calculating the cross-product of two vectors
+- Getting the RREF of a given matrix
+
+Here is a list of features we planned on implementing but didn't have enough
+time for:
+- More options with vectors (scaling, addition, subtraction, etc.)
+- Complex number operations (addition, subtraction, multiplication, etc.)
+===========================
+"""
+
+""" === Helper Functions === """
 
 def create_matrix(rows: int, columns: int) -> CoefficientMatrix:
     """Helper function to create a CoefficientMatrix
@@ -94,12 +114,17 @@ def yes_or_no() -> bool:
     return False
 
 
+""" ======================== """
+
+""" === Main Code === """
+
 if __name__ == '__main__':
     running = True
     choices = {1: 'Determinant', 2: 'Cross-product', 3: 'Dot-product',
                4: 'Inverse', 5: 'Gaussian-elimination', 6: 'RREF'}
-    operations = {1: 'addition', 2: 'subtraction', 3: 'multiplication',
-                  4: 'division'}
+    # Was intended for use but unable to implement in time
+    # operations = {1: 'addition', 2: 'subtraction', 3: 'multiplication',
+    #               4: 'division'}
 
     while running:
         print("Please pick one of the following that you would like to "
