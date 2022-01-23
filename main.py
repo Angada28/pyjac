@@ -23,6 +23,7 @@ time for:
 
 """ === Helper Functions === """
 
+
 def create_matrix(rows: int, columns: int) -> CoefficientMatrix:
     """Helper function to create a CoefficientMatrix
 
@@ -38,7 +39,7 @@ def create_matrix(rows: int, columns: int) -> CoefficientMatrix:
         if len(row_str) != columns:
             print('Invalid row input! Please give a correct input ')
         else:
-            row = [int(i) for i in row_str]
+            row = [float(i) for i in row_str]
             matrix.append(row)
             row_i += 1
 
@@ -61,7 +62,7 @@ def create_augmented(rows: int, columns: int) -> AugmentedMatrix:
         if len(row_str) != columns:
             print('Invalid row input! Please give a correct input ')
         else:
-            row = [int(i) for i in row_str]
+            row = [float(i) for i in row_str]
             _coefficients.append(row[:-1])
             _constants.append(row[-1])
             row_i += 1
