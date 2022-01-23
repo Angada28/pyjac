@@ -171,6 +171,8 @@ class CoefficientMatrix(Matrix):
     def get_inverse(self) -> Union[None, 'CoefficientMatrix']:
         """
         Returns the inverse of the matrix if it is invertible.
+        pre: must be an nxn matrix that is invertible
+        post: the inverse of the matrix
         """
         mat_a = CoefficientMatrix(copy.deepcopy(self.coefficients))
 
@@ -314,6 +316,8 @@ class AugmentedMatrix(Matrix):
     def get_rref(self) -> 'AugmentedMatrix':
         """
         Returns a row reduced echelon form of the Matrix.
+        Pre: Augmented matrix with at least one row and column
+        Post: The RREF of the augmented matrix
         """
         mat_a = AugmentedMatrix(copy.deepcopy(self.coefficients),
                                 copy.deepcopy(self.constants))
@@ -401,6 +405,8 @@ class AugmentedMatrix(Matrix):
     def is_consistent(self) -> bool:
         """
         Checks if the Augmented Matrix is Consistent.
+        Pre: Augmented matrix with at least one row and column
+        Post: True if the matrix is consistent, False otherwise
         """
 
         for i in range(len(self.coefficients.coefficients) - 1, -1, -1):
@@ -422,6 +428,8 @@ class AugmentedMatrix(Matrix):
     def gaussian(self) -> str:
         """
         Uses Gaussian Elimination to solve the given system of equations.
+        Pre: Augmented matrix with at least one row and column
+        Post: The solutions of the augmented matrix in parametric form
         """
         mat_a = self.get_rref()
 
